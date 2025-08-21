@@ -509,7 +509,7 @@ func runClient(t *testing.T, prot transport.Protocol) {
 	err = bidiStream.CloseSend(ctx)
 	test.Assert(t, err == nil)
 	_, err = bidiStream.Recv(ctx)
-	test.Assert(t, err == io.EOF)
+	test.Assert(t, err == io.EOF, err, err)
 	test.Assert(t, c == 1)
 	test.Assert(t, d == 1)
 	test.Assert(t, e == maxReceiveTimes+1)
